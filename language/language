@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+case $BLOCK_BUTTON in
+[1345]) xkb-switch -n
+esac
+
+LANG=$(xkb-switch -p | cut -c -2 | tr "[a-z]" "[A-Z]")
+
+echo  $LANG
