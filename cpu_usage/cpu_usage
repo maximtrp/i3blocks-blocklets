@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+CPU_CALC=$(mpstat 1 1 | awk '/^[0-9]+(.*)all/ {split($0,a,"\\s+"); printf "%d", a[3]}')
+CPU=$(echo "$CPU_CALC" | bc)
+
+if [ $CPU -ge 33 ]; then
+    echo $CPU%
+fi
