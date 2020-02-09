@@ -2,6 +2,8 @@
 
 This is a blocklet, which displays an active keyboard layout. It also supports layout switching.
 
+![Screenshot](screen.png)
+
 ## Installation
 
 1. Install [xkb-switch](https://github.com/ierton/xkb-switch).
