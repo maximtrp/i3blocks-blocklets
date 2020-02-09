@@ -2,6 +2,8 @@
 
 This is a blocklet, which displays an active keyboard layout. It also supports layout switching.
 
+![Screenshot](screen.png)
+
 ## Requirements
 
 * Font Awesome 4.7: [aur](https://aur.archlinux.org/packages/ttf-font-awesome-4/)

@@ -1,2 +1,3 @@
 # i3blocks-blocklets
-Useful blocklets for i3blocks
+
+This is a collection of blocklets I've been using for several years already.
