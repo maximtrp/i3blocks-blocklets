@@ -31,5 +31,6 @@ sudo cp weather /usr/lib/i3blocks
 interval=1200
 CITY=
 APIKEY=
+UNITS=metric
 ```
 

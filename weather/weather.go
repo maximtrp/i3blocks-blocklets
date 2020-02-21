@@ -61,7 +61,7 @@ func (w openWeather) getWeatherIcon() (weatherIcon string) {
 
 func (w openWeather) String() string {
 	weatherIcon := w.getWeatherIcon()
-	return fmt.Sprintf("%s %.0f°C", weatherIcon, w.Main.Temp)
+	return fmt.Sprintf("%s %.0f°", weatherIcon, w.Main.Temp)
 }
 
 func getUnixTime() int64 {
@@ -120,7 +120,7 @@ func (f forecast) String() string {
 			break
 		}
 	}
-	return fmt.Sprintf("%s %.0f°C", forecastIcon, temp)
+	return fmt.Sprintf("%s %.0f°", forecastIcon, temp)
 }
 
 func getData(url string, c1 chan *http.Response, c2 chan error) {
@@ -169,6 +169,7 @@ func main() {
 	}
 
 	weatherBody, err := ioutil.ReadAll(weatherResp.Body)
+    //fmt.Printf("%s", weatherBody)
 	err = json.Unmarshal(weatherBody, &ow)
 	if err != nil {
 		errInt := fmt.Errorf("Error parsing weather JSON response")
