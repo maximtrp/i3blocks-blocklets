@@ -6,7 +6,7 @@ This is a C++ version of my weather blocklet. It includes two implementations ba
 
 ## Requirements
 
-* C++ compiler
+* G++ compiler
 
 * API key for [OpenWeatherMap](https://openweathermap.org/api)
 
