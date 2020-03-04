@@ -10,14 +10,14 @@
 using namespace rapidjson;
 
 std::map<std::string, std::string> weather_icons = {
-    {"clear", ""},
-    {"cloud", ""},
-    {"rain", ""},
-    {"storm", ""},
-    {"snow", ""},
-    {"mist", ""},
-    {"fog", ""},
-    {"smoke", ""}
+    {"clear", "☀️"},
+    {"cloud", "☁️"},
+    {"rain", "🌧️"},
+    {"storm", "⛈️"},
+    {"snow", "❄️"},
+    {"mist", "🌫️"},
+    {"fog", "🌫️"},
+    {"smoke", "💨"}
 };
 
 static size_t write_callback(void *contents, size_t size, size_t nmemb, void *buf) {
