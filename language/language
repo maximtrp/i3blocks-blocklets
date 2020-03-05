@@ -1,9 +1,26 @@
 #!/usr/bin/bash
 
+#LANG=$(setxkbmap -print -verbose 10 | grep layout | grep -Po "(\w+)$" | tr "[a-z]" "[A-Z]")
+
 case $BLOCK_BUTTON in
 [1345]) xkb-switch -n
 esac
 
 LANG=$(xkb-switch -p | cut -c -2 | tr "[a-z]" "[A-Z]")
 
-echo  $LANG
+if [[ $LANG == 'US' ]]; then
+    COLOR2BG="#da4939"
+    COLORBG="#6D251C"
+else
+    LANG="RU"
+    COLOR2BG="#FFC300"
+    COLORBG="#604900"
+fi
+
+if [[ $LANG == 'US' ]]; then
+    COLORFG="#ffffff"
+else
+    COLORFG="#000000"
+fi
+
+echo '<span foreground="white" background="'$COLORBG'">  </span><span background="'$COLOR2BG'" foreground="'$COLORFG'"> '$LANG' </span>'

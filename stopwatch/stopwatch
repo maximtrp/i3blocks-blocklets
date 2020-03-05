@@ -13,7 +13,7 @@ case $BLOCK_BUTTON in
         ;;
     3)
         rm /tmp/pomodoro
-        echo '<span background="'$COLORBG_INACTIVE2'"> 💤 </span><span background="'$COLORBG_INACTIVE'" foreground="white"> Ready... </span>'
+        echo '<span background="'$COLORBG_INACTIVE2'"> 💤 </span><span background="'$COLORBG_INACTIVE'" foreground="white"> Ready </span>'
 esac
 
 
@@ -23,5 +23,5 @@ if [[ ! -z $START ]]; then
     MIN_ELAPSED=$((SEC_ELAPSED/60))
     echo '<span background="'$COLORBG_ACTIVE2'"> ⏳ </span><span background="'$COLORBG_ACTIVE'" foreground="white"> '$MIN_ELAPSED' min </span>'
 else 
-    echo "Ready"
+    echo '<span background="'$COLORBG_INACTIVE2'"> 💤 </span><span background="'$COLORBG_INACTIVE'" foreground="white"> Ready </span>'
 fi

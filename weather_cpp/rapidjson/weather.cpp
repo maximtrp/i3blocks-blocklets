@@ -17,7 +17,8 @@ std::map<std::string, std::string> weather_icons = {
     {"snow", "❄️"},
     {"mist", "🌫️"},
     {"fog", "🌫️"},
-    {"smoke", "💨"}
+    {"smoke", "💨"},
+    {"drizzle", "⛆"}
 };
 
 static size_t write_callback(void *contents, size_t size, size_t nmemb, void *buf) {
@@ -54,7 +55,7 @@ std::string get_icon(std::string weather) {
 	    c = ::tolower(c);
     });
 
-    std::string icon = "";
+    std::string icon = "🌡️";
     for (auto const& weather_item : weather_icons) {
         if (weather_lower.find(weather_item.first) != std::string::npos) {
             icon = weather_item.second;

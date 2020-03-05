@@ -24,6 +24,7 @@ sudo cp language /usr/lib/i3blocks
 [language]
 interval=once
 signal=8
+markup=pango
 ```
 
 3. Add a keyboard shortcut for sending a signal to i3blocks. Example string for Alt+Shift combination in `i3`:

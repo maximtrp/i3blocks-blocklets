@@ -19,5 +19,5 @@ sudo cp cpu_usage /usr/lib/i3blocks
 ```
 [cpu_usage]
 interval=5
-label=
+markup=pango
 ```

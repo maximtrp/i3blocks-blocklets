@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-var icons = map[string]string{"clear": "", "cloud": "", "rain": "", "storm": "", "snow": "", "mist": "", "fog": "", "smoke": ""}
+var icons = map[string]string{"clear": "", "cloud": "", "rain": "", "storm": "", "snow": "", "mist": "", "fog": "", "smoke": "", "drizzle": "⛆"}
 
 type openWeather struct {
 	Weather []struct {
@@ -48,7 +48,7 @@ type openWeather struct {
 
 func (w openWeather) getWeatherIcon() (weatherIcon string) {
 	weatherDesc := strings.ToLower(w.Weather[0].Main)
-	weatherIcon = ""
+	weatherIcon = "🌡️"
 
 	for k, v := range icons {
 		if strings.Contains(weatherDesc, k) {
