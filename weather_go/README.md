@@ -1,5 +1,7 @@
 # Weather blocklet
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/zyedidia/micro)](https://goreportcard.com/report/github.com/zyedidia/micro)
+
 This blocklet retrieves and shows current weather and forecast (6 hours) from OpenWeatherMap.
 
 ![Screenshot](screen.png)
