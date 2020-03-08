@@ -135,9 +135,9 @@ func main() {
 	units := os.Getenv("UNITS")
 
 	chan1 := make(chan *http.Response)
-	chan1_err := make(chan error)
+	chan1Err := make(chan error)
 	chan2 := make(chan *http.Response)
-	chan2_err := make(chan error)
+	chan2Err := make(chan error)
 
 	ow := openWeather{}
 	fc := forecast{}
@@ -145,13 +145,13 @@ func main() {
 	weatherURL := fmt.Sprintf("http://api.openweathermap.org/data/2.5/weather?id=%s&units=%s&appid=%s", cityID, units, apiKey)
 	forecastURL := fmt.Sprintf("http://api.openweathermap.org/data/2.5/forecast?id=%s&units=%s&appid=%s", cityID, units, apiKey)
 
-	go getData(weatherURL, chan1, chan1_err)
-	go getData(forecastURL, chan2, chan2_err)
+	go getData(weatherURL, chan1, chan1Err)
+	go getData(forecastURL, chan2, chan2Err)
 
 	weatherResp := <-chan1
-	weatherErr := <-chan1_err
+	weatherErr := <-chan1Err
 	forecastResp := <-chan2
-	forecastErr := <-chan2_err
+	forecastErr := <-chan2Err
 
 	defer weatherResp.Body.Close()
 	defer forecastResp.Body.Close()
@@ -168,16 +168,15 @@ func main() {
 		os.Exit(1)
 	}
 
-	weatherBody, err := ioutil.ReadAll(weatherResp.Body)
-    //fmt.Printf("%s", weatherBody)
-	err = json.Unmarshal(weatherBody, &ow)
+	weatherBody, _ := ioutil.ReadAll(weatherResp.Body)
+	err := json.Unmarshal(weatherBody, &ow)
 	if err != nil {
 		errInt := fmt.Errorf("Error parsing weather JSON response")
 		fmt.Println(errInt.Error(), err)
 		os.Exit(1)
 	}
 
-	forecastBody, err := ioutil.ReadAll(forecastResp.Body)
+	forecastBody, _ := ioutil.ReadAll(forecastResp.Body)
 	err = json.Unmarshal(forecastBody, &fc)
 	if err != nil {
 		errInt := fmt.Errorf("Error parsing forecast JSON response")
