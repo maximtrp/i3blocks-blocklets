@@ -110,7 +110,7 @@ std::string get_time() {
 
 Document get_data(std::string url) {
     fs::path path = FILENAME;
-    struct tm *tm_cf;
+    struct tm tm_cf;
     if (fs::exists(path)) { 
         // Getting file write date+time
         //auto f_time = fs::last_write_time(path);
@@ -118,17 +118,18 @@ Document get_data(std::string url) {
         //struct tm *tm_cf = localtime(&cf_time);
         struct stat filestat;
         if(stat(path.c_str(), &filestat) == 0) {
-            time_t file_mtime = filestat.st_mtime;
-            tm_cf = localtime(&file_mtime);
+            const time_t file_mtime = filestat.st_mtime;
+            localtime_r(&file_mtime, &tm_cf);
 
             // Getting current date+time
             time_t now;
             time(&now);
-            struct tm *tm_now = localtime(&now);
+            struct tm tm_now;
+            localtime_r(&now, &tm_now);
             
-            if (tm_cf->tm_year == tm_now->tm_year
-            && tm_cf->tm_mon == tm_now->tm_mon
-            && tm_cf->tm_mday == tm_now->tm_mday) {
+            if (tm_cf.tm_year == tm_now.tm_year
+            && tm_cf.tm_mon == tm_now.tm_mon
+            && tm_cf.tm_mday == tm_now.tm_mday) {
                 std::ifstream file(FILENAME);
                 std::stringstream file_stream;
                 file_stream << file.rdbuf();
