@@ -43,7 +43,10 @@ json get_data(std::string *url) {
         curl_easy_cleanup(curl_handle);
     }
 
-    return json::parse(response_buffer);
+    if (response_buffer != "")
+        return json::parse(response_buffer);
+    else
+        return json({});
 
 }
 
@@ -106,9 +109,13 @@ int main(void) {
     forecast_url += "?id=" + city_str + "&appid=" + apikey_str + "&units=" + units_str;
 
     json weather = get_data(&weather_url);
-    std::string weather_str = get_weather_string(weather);
-
     json forecast = get_data(&forecast_url);
+
+    if (weather.empty() || forecast.empty()) {
+        return 1;
+    }
+    
+    std::string weather_str = get_weather_string(weather);
     std::string forecast_str = get_forecast_string(forecast);
 
     std::cout << weather_str;
