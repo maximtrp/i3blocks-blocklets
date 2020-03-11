@@ -135,9 +135,11 @@ Document get_data(std::string url) {
                 file_stream << file.rdbuf();
                 std::string file_str = file_stream.str();
 
-                Document jsondoc;
-                jsondoc.Parse(file_str.c_str());
-                return jsondoc;
+                if (file_str != "") {
+                    Document jsondoc;
+                    jsondoc.Parse(file_str.c_str());
+                    return jsondoc;
+                }
             }
         }
     }
