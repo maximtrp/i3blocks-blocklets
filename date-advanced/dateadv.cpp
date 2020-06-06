@@ -110,36 +110,34 @@ std::string get_time() {
 
 Document get_data(std::string url) {
     fs::path path = FILENAME;
-    struct tm tm_cf;
+
     if (fs::exists(path)) { 
-        // Getting file write date+time
-        //auto f_time = fs::last_write_time(path);
-        //time_t cf_time = decltype(f_time)::clock::to_time_t(f_time);
-        //struct tm *tm_cf = localtime(&cf_time);
-        struct stat filestat;
-        if(stat(path.c_str(), &filestat) == 0) {
-            const time_t file_mtime = filestat.st_mtime;
-            localtime_r(&file_mtime, &tm_cf);
 
-            // Getting current date+time
-            time_t now;
-            time(&now);
-            struct tm tm_now;
-            localtime_r(&now, &tm_now);
+        // Getting current date+time
+        time_t now;
+        time(&now);
+        struct tm tm_now;
+        localtime_r(&now, &tm_now);
+        
+        std::ifstream file(FILENAME);
+        std::stringstream file_stream;
+        file_stream << file.rdbuf();
+        std::string file_str = file_stream.str();
+
+        if (file_str != "") {
+            Document jsondoc;
+            jsondoc.Parse(file_str.c_str());
             
-            if (tm_cf.tm_year == tm_now.tm_year
-            && tm_cf.tm_mon == tm_now.tm_mon
-            && tm_cf.tm_mday == tm_now.tm_mday) {
-                std::ifstream file(FILENAME);
-                std::stringstream file_stream;
-                file_stream << file.rdbuf();
-                std::string file_str = file_stream.str();
+            // Checking if sunrise date is current
+            std::string sunrise_dt_str = jsondoc["results"]["sunrise"].GetString();
+            time_t sunrise_dt = process_time(sunrise_dt_str);
+            struct tm sunrise_tm;
+            localtime_r(&sunrise_dt, &sunrise_tm);
 
-                if (file_str != "") {
-                    Document jsondoc;
-                    jsondoc.Parse(file_str.c_str());
-                    return jsondoc;
-                }
+            if (sunrise_tm.tm_year == tm_now.tm_year
+            && sunrise_tm.tm_mon == tm_now.tm_mon
+            && sunrise_tm.tm_mday == tm_now.tm_mday) {
+                return jsondoc;
             }
         }
     }
