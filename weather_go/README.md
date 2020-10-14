@@ -9,7 +9,6 @@ This blocklet retrieves and shows current weather and forecast (6 hours) from Op
 ## Requirements
 
 * Golang compiler
-
 * API key for [OpenWeatherMap](https://openweathermap.org/api)
 
 ## Installation

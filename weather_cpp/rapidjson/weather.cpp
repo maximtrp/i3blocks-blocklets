@@ -49,7 +49,7 @@ Document get_data(std::string *url) {
 
 }
 
-std::string get_icon(std::string weather) {
+std::string get_icon(const std::string &weather) {
     std::string weather_lower = weather;
     std::for_each(weather_lower.begin(), weather_lower.end(), [](char &c){
 	    c = ::tolower(c);

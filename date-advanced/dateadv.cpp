@@ -108,7 +108,7 @@ std::string get_time() {
     return std::string(buffer);
 }
 
-Document get_data(std::string url) {
+Document get_data(const std::string &url) {
     fs::path path = FILENAME;
 
     if (fs::exists(path)) { 

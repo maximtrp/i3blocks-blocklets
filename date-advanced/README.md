@@ -28,4 +28,3 @@ markup=pango
 LAT=XX.XXXXXX
 LNG=XX.XXXXXX
 ```
-
