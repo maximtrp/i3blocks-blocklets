@@ -98,9 +98,9 @@ int main(void) {
         return 1;
     }
 
-    std::string city_str(city, strlen(city));
-    std::string apikey_str(apikey, strlen(apikey));
-    std::string units_str(units, strlen(units));
+    std::string city_str(city);
+    std::string apikey_str(apikey);
+    std::string units_str(units);
 
     std::string weather_url = "http://api.openweathermap.org/data/2.5/weather";
     weather_url += "?id=" + city_str + "&appid=" + apikey_str + "&units=" + units_str;

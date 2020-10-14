@@ -160,12 +160,12 @@ int main(void) {
     if (c2bg == nullptr) c2bg = (char *)"#9E509F";
     if (c2fg == nullptr) c2fg = (char *)"white";
 
-    std::string lat_str(lat, strlen(lat));
-    std::string lng_str(lng, strlen(lng));
+    std::string lat_str(lat);
+    std::string lng_str(lng);
 
-    std::string c1bg_str(c1bg, strlen(c1bg));
-    std::string c2bg_str(c2bg, strlen(c2bg));
-    std::string c2fg_str(c2fg, strlen(c2fg));
+    std::string c1bg_str(c1bg);
+    std::string c2bg_str(c2bg);
+    std::string c2fg_str(c2fg);
 
     std::string url = "https://api.sunrise-sunset.org/json?date=today&formatted=0&lat=" + lat_str + "&lng=" + lng_str;
     Document sundata = get_data(url);
