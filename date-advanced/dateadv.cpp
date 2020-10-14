@@ -32,14 +32,14 @@ static size_t write_callback(void *contents, size_t size, size_t nmemb, void *bu
 Document call_api(std::string url) {
     std::string response_buffer;
     CURL *curl_handle;
-    CURLcode curl_result;
     curl_handle = curl_easy_init();
+    // CURLcode curl_result;
 
     if (curl_handle) {
         curl_easy_setopt(curl_handle, CURLOPT_URL, url.c_str());
         curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, write_callback);
         curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &response_buffer);
-        curl_result = curl_easy_perform(curl_handle);
+        curl_easy_perform(curl_handle);
         curl_easy_cleanup(curl_handle);
     }
 
