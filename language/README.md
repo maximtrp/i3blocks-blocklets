@@ -7,7 +7,6 @@ This is a blocklet, which displays an active keyboard layout. It also supports l
 ## Requirements
 
 * Font Awesome 4.7: [aur](https://aur.archlinux.org/packages/ttf-font-awesome-4/)
-
 * [xkb-switch](https://github.com/ierton/xkb-switch).
 
 ## Installation

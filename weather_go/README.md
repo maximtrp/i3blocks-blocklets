@@ -34,4 +34,3 @@ CITY=
 APIKEY=
 UNITS=metric
 ```
-

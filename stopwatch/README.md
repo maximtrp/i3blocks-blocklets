@@ -20,4 +20,3 @@ sudo cp stopwatch /usr/lib/i3blocks
 interval=60
 markup=pango
 ```
-

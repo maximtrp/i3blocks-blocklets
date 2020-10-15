@@ -12,7 +12,6 @@ This is a blocklet, which displays current date with an icon depending on your c
 ## Installation
 
 1. Run `make` to build the blocklet.
-
 2. Copy `dateadv` file to your blocklets directory (`/usr/lib/i3blocks`, in my case).
 
 ```bash
