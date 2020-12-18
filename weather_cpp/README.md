@@ -1,6 +1,6 @@
 # Weather blocklet
 
-This is a C++ version of my weather blocklet. It includes two implementations based on [nlohmann/json](https://github.com/nlohmann/json) and [rapidjson](https://github.com/Tencent/rapidjson) libraries. The first one is blocklet retrieves and shows current weather and forecast from OpenWeatherMap.
+This is a C++ version of my weather blocklet. It includes two implementations based on [nlohmann/json](https://github.com/nlohmann/json) and [rapidjson](https://github.com/Tencent/rapidjson) libraries. This blocklet retrieves and shows current weather and forecast from OpenWeatherMap.
 
 ![Screenshot](screen.png)
 
