@@ -1,6 +1,6 @@
 # Weather blocklet
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/zyedidia/micro)](https://goreportcard.com/report/github.com/zyedidia/micro)
+[![Go Report Card](https://goreportcard.com/badge/github.com/maximtrp/i3blocks-blocklets)](https://goreportcard.com/report/github.com/maximtrp/i3blocks-blocklets)
 
 This blocklet retrieves and shows current weather and forecast (6 hours) from OpenWeatherMap.
 
